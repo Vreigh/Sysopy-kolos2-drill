@@ -177,7 +177,6 @@ a) gwarantuje stworzenie kolejki o identyfiaktorze 1234 do odczytu i zapisu wyla
 c) pobiera z kolejki o identyfikatorze 1234 komunikat
 d) zwróci identyfikator kolejki o kluczu 1234, o ile kolejka istnieje 
 
-
 Działanie funkcji sem_trywait(sem_t* sem) Które zdanie jest prawdziwe?
 >>>a) jeżeli wartość semafora sem jest większa od zera, wówczas funkcja ta zmniejsza tą wartość po czym zwraca 0
 >>>b) jeżeli wartość semafora sem wynosi zero, wówczas funkcja zwraca błąd i ustawia wartośćerrno na EAGAIN
@@ -254,13 +253,13 @@ IPC - system V) Jaką wartość można ustawić jako trzeci argument funkcji sem
 >>>b) IPC_CREATE  
 c) IPC_NOWAIT  
 d) SEM_UNDO
- 
+
 Funkcja, która ustala rozmiar nowo utworzonego obiektu pamięci wspólnej, albo zmienia rozmiar istniejącego obiektu to:
 a) shm_setsize 
 b) shm_open
 >>>c) ftruncate
 d) fstat
- 
+
 Zaznacz prawdziwe zdania dotyczące mechanizmu pamięci wspólnej w IPC systemu V:
 a) po utworzeniu segmentu pamięci wspólnej nie można juz modyfikować żadnych jego atrybutów (elementów struktury shmid_ds)
 >>>b) możliwe jest dołączanie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie tylko do odczytu
