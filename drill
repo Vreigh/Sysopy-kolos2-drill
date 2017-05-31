@@ -1,0 +1,287 @@
+Która z niżej wymienionych funkcji umożliwia ograniczone oczekiwanie na warunek? Wybierz jedną lub więcej:
+a) żadana z wymienionych w innych punktach
+b) int sem_wait(sem_t* sem)
+c) int pthread_cond_wait(pthread_cond_t* cond, pthread_mutex_t* mutex)
+>>>d) int pthread_cond_timedwait(pthread_cond_t* cond, pthread_mutex_t* mutex, struct timespec* abstime)
+
+(IPC - system V). Wywołanie:
+msgrcv(id, (struct msgbuf*) & data, 3, 4, IPC_NOWAIT | MSG_NOERROR);
+a) Zapisze komunikat typu 3 do struktury data
+b) Jeśli nie ma aktualnie dostępnego komunikatu zadanego typu, funkcja nie zablokuje procesu ale i nie zwróci błędu
+>>>c) Zapisze komunikat typu 4 do struktury data
+>>>d) Funkcja skróci komunikat gdy będzie on dłuższy od wartości odpowiedniego argumentu
+e) Ma błędnie ustawione flagi
+
+Dla funkcji sem_getvalue prawdziwe są następujące zdania:
+>>>a) bieżąca wartość semafora jest przekazywana w drugim argumencie funkcji
+b) bieżąca wartość semafora jest wartością zwracaną przez funkcję 
+c) odczytana przez funkcję bieżąca wartość semafora jest zawsze ujemna
+d) funkcję tą można uzywać tylko dla semaforów nazwanych
+>>>e) odczytana przez funkcję bieżąca wartość semafora może byćujemna
+f) funkcję tą można używać tylko dla semaforów nienazwanych
+
+Wykorzystanie sygnalizatora IPC_EXCL w wywołaniu funkcji msgget(semget, shmget):
+a) ma sens tylko przy jednoczeesnym stosowaniu klucza IPC_PRIVATE
+b) powoduje że funkcja ta kończy się błędem gdy zasób o podanym kluczu nie był jeszcze utworzony
+>>>c) żadna z pozostałych odpowiedzi nie jest prawdziwa
+d) zapewnia, że nowo utworzony zasób będzie mógł być wyłącznie używany przez proces, który go utworzył
+
+Wskaż prawdziwe zdania dla funkcji munmap dla pamięci wspólnej POSIX:
+>>>a) Po wywołaniu munmap odwołania do obszaru pamięci przestają być poprawne
+b) Powoduje usunięcie obiektu pamięci wspólnej 
+c) Nie ma wpływu na usunięcie obiektu pamięci wspólnej z systemu
+d) Nie jest to poprawna funkcja POSIX
+>>>e) Po odmapowaniu wszystkich dostępów do pamięci wspólnej, jest usuwana
+
+Które z poniższych pól występują w strukturze 'IPC_PERM'?
+a) kolejny numer obiektu
+>>b) prawa dostępu
+c) czas utworzenia zasobu
+>>>d) identyfikator twórcy zasobu
+
+Maksymalną dozwoloną liczbę bajtów w kolejce przy pomocy funkcji msgctl może zwiększyć:
+>>>a) właściciel kolejki
+b) nie jest możliwa taka operacja
+>>>c) nadzorca systemu
+>>>d) twórca kolejki
+
+Które zdania opisują różnice pomiędzy funkcjami sem_wait i sem_trywait
+a) Funkcja sem_wait nie można wykonywać dla semaforów nienazwanych, a sem_trywait można
+b) Funkcja sem_wait zmniejsza wartość semafora o 1, a sem_trywait nie zmienia wartości semafora
+>>>c) Gdy semafor jest zablokowany, funkcja sem_wait usypia proces, aż semafor zostanie odblokowany, natomiast w takiej sytuacji sem_trywait od razu kończy swoje działanie
+
+Numery portów?
+>>>a) Numer portu jest 16-bitową liczbą
+b) Numer portu jest 32-bitową liczbą
+>>>c) Zarezerwowane numery portów to 0..1023
+d) Zarezerwowane numery portów to 0..1024
+e) Zarezerwowane numery portót to 0..65535
+
+Do pobrania właściwości kolejki komunikatów służy funkcja:
+a) msgsnd
+>>>b) msgctl
+c) msgstat
+d) msgget
+
+Wskaż zdanie lub zdania prawdziwe:
+a) Gniazda domeny PF_INET służą do obsługi protokołu IPv6
+b) Po zaakceptowaniu połączenia funkcją accept, do obsługi tego połączenia stosuje się to samo gniazdo które przekazano do funkcji accept
+>>>c) Przekazanie funkcji socket zera w parametrze protocol spowoduje wybranie domyślnego protokołu dla podanej domeny i typu
+>>>d) Gniazda typu SOCK_STREAM gwarantują, że dane zostaną odebrane w kolejności w jakiej zostały wysłane
+
+Jaki sygnał otrzyma proces, który próbuje zapisać do segmentu pamięci dzielonej przeznaczonej jedynie do odczytu?
+a) SIGTERM
+b) SIGSHM
+>>>c) SIGSEGV
+d) SIGSEG
+
+Do metod komunikacji międzyprocesowej POSIX należą:
+>>>a) Pamięć wspólna (dzielona)
+>>>b) Kolejki komunikatów
+c) Sygnały
+>>>d) Semafory
+e) Łacza nienazwane (pipe)
+
+Wskaż prawdziwe zdania:
+>>>a) status zakończenia wątku możemy uzyskać poprzez funkcję pthread_join
+b) pthread_kill zwalnia zasoby zużyte przez wątek
+>>>c) argument wywołania przekazywany jest do wątku zawsze przez wskaźnik
+>>>d) może się zdarzyć, że funkcja pthread_cancel nie zamknie wątku
+
+Wykorzystanie sygnalizatora IPC_CREATE w wywołaniu funkcji msgget(semget, shmget):
+a) zapewnia, że na pewno zostanie utworzony nowy zasób
+b) w przypadku gdy istniał już zasób o podanym kluczu, powoduje usunięcie go i utworzenie nowego
+>>>c) powoduje, że jeśli jeszcze nie był utworzony zasób o podanym kluczu to jest tworzony
+d) ma sens tylko przy jednoczesnym zastosowaniu sygnalizatora IPC_EXCL
+e) powoduje, że funkcja ta kończy się błędem, gdy zasób o podanym kluczu był już utworzony
+
+Zaznacz prawdziwe zdania dotyczące mechanizmu pamięci wspólnej w IPC systemu V:
+>>>a) możliwe jest dołączanie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie wykonywania
+>>>b) możliwe jest uzyskanie informacji o bieżącej liczbie dołączeń segmentu pamięci wspólnej
+>>>c) możliwe jest dołączenie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie tylko do odczytu
+d) po utworzeniu segmentu pamięci wspólnej nie można już modyfikować żadnych atrybutów (elementów struktury shmid_ds)
+
+Używając funkcji gethostbyname() możemy dowiedzieć się?
+>>>a) Jaka jest oficjalna nazwa hosta
+>>>b) Jakie są inne nazwy tego hosta
+c) Jakie porty są w trybie nasłuchiwania, a więc którymi sie posłużyć
+d) Jakie są uruchomione usługi sieciowe na hoscie(np. sshd, telnet)
+>>>e) Jakie adresy wskazują na tego hosta
+
+Gdy wątek (nie główny) wywoła funkcje_exit:
+a) wątek wywołujący zostaje zablokowany do czasu zakończenia pracy przez wszystkie wątki procesu
+b) nic się nie dzieje, tylko wątek główny może zakończyć proces 
+>>>c) cały proces kończy swoją pracę
+d) tylko wątek wywołujący zakończy swoją pracę, pozostałe wątki tego procesu działają nadal
+
+Wskaż prawdziwe zdania:
+>>>a) Wątek po wywołaniu funkcji pthread_exit(...) nie zwalnia zużytych zasobów
+b) Wątki mogą być tworzone wyłącznie z wątku głównego
+c) Wątki nie mogą korzystać ze zmiennych globalnych w związku z czym musza je otrzymać jako argumenty
+d) Żądanie anulowania wątku jest obsługiwane natychmiast po odebraniu
+
+Rozważmy funkcję systemową int semop(int semid, struct sembuf* wsk, size_t nops) Zaznacz prawdziwe zdania:
+a) wsk jest wskaźnikiem do tablicy zawierającej zbiór semaforów o identyfikatorze semid
+b) żadna z pozostałych odpowiedzi nie jest prawdziwa
+c) wsk jest wskaźnikiem do struktury zawierającej definicję semafora, a nops jest rozmiarem tej struktury
+>>>d) wsk jest wskaźnikiem do tablicy zawierającej operacje na semaforze, a nops określa ilość elementów w tablicy
+
+Możliwe typy muteksa to:
+>>>a) recursive mutex
+>>>b) fast mutex
+c) synchronised mutex
+>>>d) errorchecking mutex
+e) strange mutex
+
+Utworzony z domyślnymi opcjami wątek charakteryzuje się tym, że:
+a) Zasoby z nim związane są zwalniane automatycznie
+>>>b) Jest typu joinable
+c) Jego ID jest wartością zwracaną przez funkcję pthread_create, o ile nie wynosi ona -1 sygnalizująć błąd przy tworzeniu wątku
+>>>d) Rozpoczyna działanie od funkcji przekazanej do pthread_create
+
+Podniesienie opuszczonego semafora jest mozliwe:
+a) jedynie przez proces, który utworzyl dany semafor funkcja semget 
+b) jedynie przez proces, który dokonal wczesniej opuszczenia danego semafora 
+>>> c) przez kazdy proces majacy dostep do danego semafora 
+d) jedynie przez proces, który dokonal wczesniej opuszczenia danego semafora lub proces uprzywilejowany
+
+Usunięcie kolejki przez funkcję msgctl:
+>>>a) następuje natychmiast
+b) zależy od flagi MSG_NOERROR
+c) następuje gdy kolejka będzie pusta od momentu tego wywołania funkcji nie można już umieszczać komunikatów w kolejce
+>>>d) może nastąpić tylko przez proces z uprawnieniamy twórcy kolejki lub nadzorcy systemu
+
+Wielokrotne blokowanie jednego mutexu przez ten sam wątek:
+a) powoduje wywłaszczenie pozostałych wątków
+b) spowoduje zwrócenie błędu EBUSSY
+c) będzie miało rezultat zależny od ustawionej zmiennej warunku
+>>>d) spowoduje zablokowanie tego wątku, jeśli mutex jest mutexem szybkim
+>>>e) nie spowoduje zablokowania tego wątku, jesli mutex jest rekurencyjny
+
+Wielokrotne zamykanie jednego mutexa przez ten sam watek...
+a) spowoduje zwrocenie bledu ELOCKED, jesli mutex jest mutexem sprawdzajacym bledy
+>>>b) spowoduje zablokowanie sie watku, jesli mutex jest mutexem szybkim
+c) powoduje anulowanie pozostalych watkow
+>>>d) nie spowoduje zablokowania sie watku, jesli mutex jest rekurencyjny
+e) bedzie mialo rezultat zalezny od ustawionej zmiennej warunku
+
+Zaznacz prawdziwe zdania:
+a) Żadne z pozostałych nie jest prawdziwe 
+>>>b) Operacja wykonywana przez funkcję semop może zmienić stan co najwyżej jednego semafora ze zbioru
+c) Gdy wywołując funkcję semop będziemy alokować zasoby (wartość sem_op ujemna), ustawiając równocześnie sygnalizator SEM_UNDO, to zasób nie zwolniony w ciągu zadanego przedziału czasu zostanie automatycznie zwolniony przez jądro
+>>>d) Funkcja semop realizuje w sposób atomowy operacje na zbiorze semaforów tzn. albo zostaną wykonane wszystkie zadane operacje, albo żadna
+
+Wywolanie: msgget(1234, O_CREAT|O_EXCL|0600)
+a) gwarantuje stworzenie kolejki o identyfiaktorze 1234 do odczytu i zapisu wylacznie dla procesów tworzacego ja uzytkownika
+>>>b) zwróci identyfikator kolejki o kluczu 1234, o ile kolejka nie istnieje
+c) pobiera z kolejki o identyfikatorze 1234 komunikat
+d) zwróci identyfikator kolejki o kluczu 1234, o ile kolejka istnieje 
+
+
+Działanie funkcji sem_trywait(sem_t* sem) Które zdanie jest prawdziwe?
+>>>a) jeżeli wartość semafora sem jest większa od zera, wówczas funkcja ta zmniejsza tą wartość po czym zwraca 0
+>>>b) jeżeli wartość semafora sem wynosi zero, wówczas funkcja zwraca błąd i ustawia wartośćerrno na EAGAIN
+c) jeżeli wartość semafora sem wynosi zero, wówczas funkcja ta blokuje proces do czasu aż inny proces zwiększy wartość semafora
+d) jeżeli wartość semafora sem jest większa od zera, wówczas funkcja ta zwiększa tą wartość po czym zwraca 0
+
+Wątki mają:
+a) wspólny stos
+>>>b) wspólny PID
+c) wspólny Thread ID
+>>>d) indywidualne maski sygnałów
+
+Dla funkcji mq_notify prawdziwe są następujące stwierdzenia:
+a) powiadomienie jest realizowane gdy kolejka jest pełna i pobrany zostanie komunikat(co spowoduje możliwość umieszczenia nowego komunikatu w kolejce)
+>>>b) po powiadomieniu proces jest wyrejestrowany i musi się ponownie zarejestrować, aby uzyskać kolejne powiadomienie
+>>>c) poza zarejestrowaniem powiadamiania funkcja umożliwia również wyrejestrowanie powiadamiania 
+>>>d) ustawiane przez funkcję powiadamianie może być realizowane przez wysłanie sygnału
+e) powiadomienie jest realizowane zawsze gdy dodawany jest nowy komunikat do pustej kolejki
+>>>f) ustawiane przez funkcję powadamianie może być realizowane przez uruchomienie nowego wątku
+g) powiadomienie jest realizowane zawsze gdy dodawany jest nowy komunikat do kolejki
+
+Przy korzystaniu z gniazd domeny Unixa:
+a) Nie należy używać funkcji bind
+b) Nie jest możliwe korzystanie z trybu connectionless(SOCK_DGRAM)
+>>c) Możemy utworzyć gniazdo w dowolnym miejscu struktury katalogów, do którego mamy prawo zapisu
+d) Klient używa adresu 127.0.0.1
+
+Dla funkcji sem_timewait prawdziwe są nastepujące zdania:
+a) argument opisujący czas oczekiwania podaje się jako przedział czasu
+b) funkcja ta zawsze (o ile nie pojawi się sygnał) blokuje proces na danym semaforze aż upłynie określony przez jeden z argumentów czas
+>>>c) argument opisujący czas oczekiwania podaje się jako czas bezwzględny
+d) funkcja ta realizuje opóźnione (aż upłynie określony przez jeden z argumentów czas) wykonanie operacji sem_wait
+>>>e) gdy wartość semafora jest dodatnia to funkcja zachowuje się identycznie jak funkcja sem_wait
+
+Czy możliwe jest nałożenie limitu na czas wykonywania operacji na grupie semaforów?
+a) Nie
+>>>b) Tak, używając funkcji semtimedop
+c) Tak, ale semafor musi być odpowiednio utworzony(z użyciem SEM_TIMEDOPERATION)
+d) Tak, odpowiednio używając funkcji semop
+
+Wskaż prawdziwe zdania dotyczące standardu POSIX:
+>>>a) jest to jeden ze standardów dla programowania systemowego
+b) jest odmianą systemu UNIX
+c) POSIX pozwala na zgodność programów na poziomie binarnym między różnymi systemami operacyjnymi
+d) jest to inna nazwa dla Systemu V
+>>>e) POSIX pozwala na zgodność programów na poziomie kodu źródłowego między różnymi systemami operacyjnymi
+
+Wskaż zdanie fałszywe:
+a) muteksy: rekurencyjny i sprawdzający błędy są specyficzną własnością GNU/Linuksa
+b) w systemie Linux domyślnie tworzonym muteksem jest tzw. mutex szybki
+>>>c) aby utworzyć muteks należy wywołać funkcję int pthread_init(pthread_mutex_t* mutex)
+d) zmienna muteksu jest typu pthread_mutex_t
+
+Rozmiar kolejki w systemi POSIX:
+a) Może zostac zmieniony za pomocą funkcji mq_setattr
+b) Jest stały dla wszystkich implementacji POSIX
+c) Zależy wyłąćznie od implementacji (systemu operacyjnego)
+>>>d) Jest ustawiany programowo przy tworzeniu kolejki
+
+Funkcja pthread_cleanup_push:
+a) usuwa funkcje ze zbioru funkcji czyszczących wątku
+>>>b) rejestruje funkcje na stosie
+>>>c) rejestruje funkcje która jest wywołana jak wątek wywoła funckje pthread_exit
+d) blokuje proces
+
+Wskaż zdanie lub zdania prawdziwe:
+>>>a) Gniazda typu SOCK_STREAM gwarantują, że dane zostaną odebrane w kolejności w jakiej zostały wysłane
+>>>b) Po zaakceptowaniu połączenia funkcją accept do obsługi tego połączenia stosuje się to samo gniazdo, które przekazano do funkcji accept
+c) Gniazda domeny PF_INET służą do obsługi protokołu IPv6
+>>>d) Przekazanie funkcji socket zera w parametrze protocol spowoduje wybranie domyślnego protokołu dla podanej domeny i typu
+
+IPC - system V) Jaką wartość można ustawić jako trzeci argument funkcji semget?
+>>>a) IPC_PRIVATE
+>>>b) IPC_CREATE  
+c) IPC_NOWAIT  
+d) SEM_UNDO
+ 
+Funkcja, która ustala rozmiar nowo utworzonego obiektu pamięci wspólnej, albo zmienia rozmiar istniejącego obiektu to:
+a) shm_setsize 
+b) shm_open
+>>>c) ftruncate
+d) fstat
+ 
+Zaznacz prawdziwe zdania dotyczące mechanizmu pamięci wspólnej w IPC systemu V:
+a) po utworzeniu segmentu pamięci wspólnej nie można juz modyfikować żadnych jego atrybutów (elementów struktury shmid_ds)
+>>>b) możliwe jest dołączanie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie tylko do odczytu
+c) możliwe jest dołączanie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie wykonywania
+d) możliwe jest uzyskanie informacji o bieżącej liczbie dołączeń segmentu pamięci wspólnej 
+
+(IPC - system V) Do tworzenia kolejki komunikatów w systemie, służy funkcja:int msgget (key_t key, int flag) zwracająca identyfikator kolejki lub -1.
+a) argument flag pozwala określić maksymalną liczbę komunikatów, które mogą znaleźć się w podanej kolejce
+>>>b) argument flag pozwala określić prawa dostępu do kolejki
+>>>c) podanie flagi równej wartości symbolicznej IPC_PRIVATE gwarantuje stworzenie nowej kolejki
+d) kolejka zostanie zawsze stworzona, gdy zostanie podany dodatni całkowity klucz oraz jedną z flag będzie IPC.CREAT
+e) do kolejki, od tej pory, funkcje systemowe uzyskują dostęp zarówno przez klucz, jak i przez zwrócony przez msgget identyfikator
+
+(IPC - system V) Co powoduje podanie stałej IPC_PRIVATE jako argumentu key dla rodziny funkcji shmget, msgget, semget? Wybierz jedną lub więcej:
+a) powoduje, że operacje na danym zasobie będą nieblokujące
+>>>b) powoduje, że utworzona zostanie prywatna struktura, do której dostęp będą miały tylko procesy użytkownika, który daną strukturę utworzył, procesy innych użytkowników w żadnym wypadku nie będą mieć możliwości wykorzystania tak stworzonego obiektu
+>>>c) powoduje utworzenie nowego zasobu
+d) żadne z pozostałych
+
+Wskaż prawdziwe zdania: Wybierz jedną lub więcej:
+>>>a) argument wywołania przekazywany jest do wątku zawsze przez wskaźnik
+>>>b) może się zdarzyć, że funkcja pthread_cancel nie zamknie wątku
+>>>c) status zakończenia wątku możemy uzyskać poprzez funkcję pthreadjoin
+d) pthread_kill zwolnią zasoby zużyte przez wątek
