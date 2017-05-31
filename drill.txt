@@ -242,12 +242,6 @@ a) usuwa funkcje ze zbioru funkcji czyszczących wątku
 >>>c) rejestruje funkcje która jest wywołana jak wątek wywoła funckje pthread_exit
 d) blokuje proces
 
-Wskaż zdanie lub zdania prawdziwe:
->>>a) Gniazda typu SOCK_STREAM gwarantują, że dane zostaną odebrane w kolejności w jakiej zostały wysłane
->>>b) Po zaakceptowaniu połączenia funkcją accept do obsługi tego połączenia stosuje się to samo gniazdo, które przekazano do funkcji accept
-c) Gniazda domeny PF_INET służą do obsługi protokołu IPv6
->>>d) Przekazanie funkcji socket zera w parametrze protocol spowoduje wybranie domyślnego protokołu dla podanej domeny i typu
-
 IPC - system V) Jaką wartość można ustawić jako trzeci argument funkcji semget?
 >>>a) IPC_PRIVATE
 >>>b) IPC_CREATE  
@@ -278,9 +272,3 @@ a) powoduje, że operacje na danym zasobie będą nieblokujące
 >>>b) powoduje, że utworzona zostanie prywatna struktura, do której dostęp będą miały tylko procesy użytkownika, który daną strukturę utworzył, procesy innych użytkowników w żadnym wypadku nie będą mieć możliwości wykorzystania tak stworzonego obiektu
 >>>c) powoduje utworzenie nowego zasobu
 d) żadne z pozostałych
-
-Wskaż prawdziwe zdania: Wybierz jedną lub więcej:
->>>a) argument wywołania przekazywany jest do wątku zawsze przez wskaźnik
->>>b) może się zdarzyć, że funkcja pthread_cancel nie zamknie wątku
->>>c) status zakończenia wątku możemy uzyskać poprzez funkcję pthreadjoin
-d) pthread_kill zwolnią zasoby zużyte przez wątek
