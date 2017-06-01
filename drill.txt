@@ -248,12 +248,6 @@ b) shm_open
 >>>c) ftruncate
 d) fstat
 
-Zaznacz prawdziwe zdania dotyczące mechanizmu pamięci wspólnej w IPC systemu V:
-a) po utworzeniu segmentu pamięci wspólnej nie można juz modyfikować żadnych jego atrybutów (elementów struktury shmid_ds)
->>>b) możliwe jest dołączanie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie tylko do odczytu
-c) możliwe jest dołączanie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie wykonywania
-d) możliwe jest uzyskanie informacji o bieżącej liczbie dołączeń segmentu pamięci wspólnej 
-
 (IPC - system V) Do tworzenia kolejki komunikatów w systemie, służy funkcja:int msgget (key_t key, int flag) zwracająca identyfikator kolejki lub -1.
 a) argument flag pozwala określić maksymalną liczbę komunikatów, które mogą znaleźć się w podanej kolejce
 >>>b) argument flag pozwala określić prawa dostępu do kolejki
