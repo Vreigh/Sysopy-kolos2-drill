@@ -1,0 +1,54 @@
+5. Obsluga sygnalow w watkach (wskazac prawdziwe zdania):
+a) watki nie dziedzicza obslugi sygnalu po watku zarzadcy i kazdy z nich musi na nowo wywolac funkcje signal
+b) kazdy watek ma osobna maske sygnalów
+c) watki wspóldziela obsluge sygnalów 
+
+::IPC - system V:: W kolejce komunikatów umieszczono w podanej kolejnosci nastepujace wiadomosci:
+1. 'Ala ma kota' -- typ 10
+2. 'Ela ma psa' -- typ 5
+3. 'Ola ma rybki' -- typ 15
+O której z pan odczytamy informacje, jesli w wywolaniu funkcji msgrcv jako argument
+dotyczacy typu podamy wartosc -12 ?
+
+a) o Ali
+b) o Oli
+c) o zadnej z nich; funkcja zwróci -1 gdyz w kolejce nie wystepuje komunikat o podanym typie
+d) o Eli
+
+::IPC - system V:: Zaznacz prawdziwe zdania)
+a) Jezeli wywolujac funkcje semop bedziemy alokowac zasoby (wartosc sem_op ujemna) i jezeli ustawimy sygnalizator SEM_UNDO, to jezeli zasób nie zostanie zwolniony w ciagu zadanego przedzialu czasu, to jadro zwolni go automatycznie
+b) Funkcja semop realizuje w sposób atomowy operacje na zbiorze semaforów tzn. albo zostana wykonane wszystkie zadane operacje, albo zadna
+c) Jezeli wywolujac funkcje semop bedziemy alokowac zasoby (wartosc sem_op ujemna) i jezeli ustawimy sygnalizator SEM_UNDO, to jadro bedzie pamietac, ile zasobów zajelismy dla danego semafora i w momencie wykonania exit przez proces jadro sprawdzi, czy istnieja nie zastosowane wartosci nastawiajace dla tego semafora i w razie potrzeby dokona wyrównania wartosci semafora
+d) Operacja wykonywana przez funkcje semop moze zmienic stan co najwyzej jednego semafora ze zbioru
+e) Zadne z pozostalych zdan nie jest prawdziwe
+
+Które zdanie dotyczace funkcji pthread_exit jest nieprawdziwe:
+a) Konczy dzialanie watku, który ja wywolal.
+b) Jesli watek jest odlaczony wartosc zwracana bedzie pózniej dostepna dla funkcji pthread_join
+c) Ignoruje ona wszystkie procedury czyszczace i destruktory danych wlasnych
+d) Przyjmuje jako parametr wartosc jaka ma zostac zwrócona przez zakonczony watek
+e) Jesli jako drugi parametr podamy ID watku, watek ten zostanie zakonczony  
+
+8. Zalozmy, ze nasz program przeprowadza dzialania, które moga zmienic warunek chroniony zmienna warunku.
+W jakiej kolejnosci powinny zostac wykonane ponizsze czynnosci:
+1: odblokowanie muteksu towarzyszacego zmiennej warunku.
+2: zmiana warunku,
+3: zablokowanie muteksu towarzyszacego zmiennej warunku,
+4: sygnalizacja zmiennej warunku
+ a) 1,2,3,4
+ b) 2,1,4,3
+ c) 3,2,1,4
+ d) 3,2,4,1
+ 
+Które funkcje powoduja calkowite usuniecie kolejki Posix z systemu?
+a) int mq_setattr(mqd_t mqdes, const struct mq_attr *attr, struct mq_attr *oattr) z odpowiednimi atrybutami 	
+b) int mq_unlink(const char *name); 	
+c) int mq_close(mqd_t mqdes); 	
+d) int mq_remove(mqd_t mqdes); 	
+e) int mq_delete(mqd_t mqdes); 	
+
+::Pamiec wspólna::Wskaz prawdziwe zdanie:
+a) Moze z niej korzystac tylko jeden okreslony proces 	
+b) Aby korzystac z funkcji ktore ja obsluguja nalezy zainkludowac plik sys/mman.h 	
+c) Tworzymy ja przy pomocy funkcji shm_open(const char *name, int oflag, mode_t mode) 	
+d) Po wywolaniu funkcji shm_open nie musimy mapowac objektu pamieci wspolnej na przestrzen adresowa w pamieci 	
