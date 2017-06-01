@@ -1,5 +1,3 @@
-
-
 Lacza strumieniowe::Wybierz prawdziwe zdania dotyczace laczy strumieniowych.
 >>>a)Pojedynczy proces moze uzywac tego samego deskryptora do zapisu i odczytu z lacza strumieniowego. 
 >>>b)Lacza strumieniowe maja ograniczona pojemnosc 
@@ -15,14 +13,12 @@ Synchronizacja::Ktore problemy moga sie przytrafic w wielowatkowych progamach dz
 >>>d) zawieszenie
 e) restart programu
 
-
 Mutex::Mechanizm muteksow:
 >>>a) umozliwia synchronizacje blokow kodu
 b) umozliwia wykonywanie synchronizowanych blokow kodu przez wiele watkow jednoczesnie
 c) wyklucza mozliwosc zakleszczenia programu
 >>>d) moze wspolpracowac ze zmiennymi warunkow (Condition Variables)
 e) znajduje sie w bibliotece conditionvariables.h
-
 
 Blokady ReaderWriter::Blokady ReaderWriter:
 >>>a) sa mechaniznem synchronizacji blokow kodu
@@ -67,13 +63,11 @@ a) int pthread_cond_init(pthread_cond_t *restrict cond, const pthread_condattr_t
 c) int pthread_cond_wait(pthread_cond_t *restrict cond, pthread_mutex_t *restrict mutex)
 >>>d) int pthread_cond_signal(pthread_cond_t *cond)
 
-
 Semafory::Wartosc semafora mozemy ustawic:?
 a) Wewnatrz glownej funkcji wykonywanej przez watek, za pomoca funkcji sem_setvalue
 >>>b) Przy inicjalizacji semafora
 >>>c) W dowolnym miejscu programu (po inicjalizacji semafora), za pomoca funkcji sem_post
 d) Wewnatrz funkcji main, za pomoca funkcji sem_setvalue
-
 
 Mutex::Mozliwe typy (atrybuty) dla muteksa to:?
 >>>a) PTHREAD_MUTEX_NORMAL
@@ -95,12 +89,10 @@ d) sluzy do tworzenia nowej instancji obiektu podawanego jako argument funkcji
 void* thread1(void* args) 
 do_something();
 return NULL;
-
 void* thread2(void* args)
 pthread_detach(pthread_self());
 do_something();
 return NULL;
-
 int main() 
 pthread_t t1, t2;
 pthread_create(&t1,NULL,&thread1,NULL);
@@ -429,10 +421,10 @@ d) funkcja sem_unlink usuwa semafor z pamieci
 >>>e) funkcje obslugi semaforow znajduja sie w pliku nglowkowym <semaphore.h>
 
 Funkcja int pthread_mutex_trylock(pthread_mutex_t *mutex); 
->>a) Nie moze zablokowac watku 
+>>>a) Nie moze zablokowac watku 
 b) Moze zablokowac caly proces 
 c) Zawsze zwraca 0 
->>d) Poprawnie wykorzystana zapobiega odwolaniu sie przez dwa watki do tego samego miejsca w pamieci 
+>>>d) Poprawnie wykorzystana zapobiega odwolaniu sie przez dwa watki do tego samego miejsca w pamieci 
 
 Metody zakonczenia watku to:
 >>>a) pthread_exit z wattku ktory chcemy zakonczyc 
@@ -1303,7 +1295,6 @@ W jakiej kolejnosci powinny zostac wykonane ponizsze czynnosci: //odpowiedź wg 
 2. zmiana warunku,
 3. zablokowanie muteksu towarzyszacego zmiennej warunku,
 4. sygnalizacja zmiennej warunku
-
 a) 1,2,3,4
 >>>b) 3,2,4,1
 c) 2,1,4,3
@@ -1464,7 +1455,6 @@ b) tak, poniewaz w pipe nie powinno byc wogole pierwszego argumentu
 c) tak, poniewaz w pipe pierwszym argumentem powinno byc tab[0]   
 d) tak, poniewaz tablica powinna byc typu pid_t a nie int   
 e) nie
-
 Kazdy komunikat w kolejce komunikatów POSIX zawiera:
 >>>a) Rozmiar obszaru danych
 >>>b) Dane komunikatu
@@ -1577,20 +1567,6 @@ b) O_WRONLY - pamiec tylko do zapisu
 >>> c) O_RDWR - pamiec do odczytu i zapisu
 d) Zadne z przedstawionych. Pamiec dzielona jest zawsze do odczytu i zapisu 
 
-
-::IPC - system V:: W kolejce komunikatów umieszczono w podanej kolejnosci nastepujace wiadomosci:
-1. 'Ala ma kota' -- typ 10
-2. 'Ela ma psa' -- typ 5
-3. 'Ola ma rybki' -- typ 15
-O której z pan odczytamy informacje, jesli w wywolaniu funkcji msgrcv jako argument
-dotyczacy typu podamy wartosc -12 ?
-
->>>a) o Ali
-b) o Oli
-c) o zadnej z nich; funkcja zwróci -1 gdyz w kolejce nie wystepuje komunikat o podanym typie
-d) o Eli
-
-
 Które zdanie dotyczace funkcji pthread_exit jest nieprawdziwe:
 a) Konczy dzialanie watku, który ja wywolal.
 >>>b) Jesli watek jest odlaczony wartosc zwracana bedzie pózniej dostepna dla funkcji pthread_join
@@ -1598,7 +1574,6 @@ a) Konczy dzialanie watku, który ja wywolal.
 d) Przyjmuje jako parametr wartosc jaka ma zostac zwrócona przez zakonczony watek
 >>>e) Jesli jako drugi parametr podamy ID watku, watek ten zostanie zakonczony  
 
- 
 Które funkcje powoduja calkowite usuniecie kolejki Posix z systemu?
 a) int mq_setattr(mqd_t mqdes, const struct mq_attr *attr, struct mq_attr *oattr) z odpowiednimi atrybutami 	
 >>>b) int mq_unlink(const char *name); 	
