@@ -96,7 +96,7 @@ d) ma sens tylko przy jednoczesnym zastosowaniu sygnalizatora IPC_EXCL
 e) powoduje, że funkcja ta kończy się błędem, gdy zasób o podanym kluczu był już utworzony
 
 Zaznacz prawdziwe zdania dotyczące mechanizmu pamięci wspólnej w IPC systemu V:
-a) możliwe jest dołączanie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie wykonywania
+>>>a) możliwe jest dołączanie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie wykonywania
 >>>b) możliwe jest uzyskanie informacji o bieżącej liczbie dołączeń segmentu pamięci wspólnej
 >>>c) możliwe jest dołączenie segmentu pamięci wspólnej do przestrzeni adresowej procesu w trybie tylko do odczytu
 d) po utworzeniu segmentu pamięci wspólnej nie można już modyfikować żadnych atrybutów (elementów struktury shmid_ds)
