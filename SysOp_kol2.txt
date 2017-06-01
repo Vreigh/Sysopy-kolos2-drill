@@ -1552,7 +1552,7 @@ b) Wielowatkowe (moze wejsc wiecej niz jeden watek)
 a) Jezeli wywolujac funkcje semop bedziemy alokowac zasoby (wartosc sem_op ujemna) i jezeli ustawimy sygnalizator SEM_UNDO, to jezeli zasób nie zostanie zwolniony w ciagu zadanego przedzialu czasu, to jadro zwolni go automatycznie
 >>> b) Jezeli wywolujac funkcje semop bedziemy alokowac zasoby (wartosc sem_op ujemna) i jezeli ustawimy sygnalizator SEM_UNDO, to jadro bedzie pamietac, ile zasobów zajelismy dla danego semafora i w momencie wykonania exit przez proces jadro sprawdzi, czy istnieja nie zastosowane wartosci nastawiajace dla tego semafora i w razie potrzeby dokona wyrównania wartosci semafora
 >>> c) Funkcja semop realizuje w sposób atomowy operacje na zbiorze semaforów tzn. albo zostana wykonane wszystkie zadane operacje, albo zadna
-d) Operacja wykonywana przez funkcje semop moze zmienic stan co najwyzej jednego semafora ze zbioru
+>>> d) Operacja wykonywana przez funkcje semop moze zmienic stan co najwyzej jednego semafora ze zbioru
 e) Zadne z pozostalych zdan nie jest prawdziwe 
 
 ::Watki::Funkcja pthread_cleanup_push:
@@ -1581,3 +1581,7 @@ c) int mq_close(mqd_t mqdes);
 d) int mq_remove(mqd_t mqdes); 	
 e) int mq_delete(mqd_t mqdes); 	
 
+Obsluga sygnalow w watkach (wskazac prawdziwe zdania):
+a) watki nie dziedzicza obslugi sygnalu po watku zarzadcy i kazdy z nich musi na nowo wywolac funkcje signal
+>>>b) kazdy watek ma osobna maske sygnalów
+c) watki wspóldziela obsluge sygnalów 
