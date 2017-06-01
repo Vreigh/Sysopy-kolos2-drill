@@ -1,8 +1,9 @@
-# Sysopy-kolos2-drill
+﻿# Sysopy-kolos2-drill
 
 
-Docelowo chcemy aby wszystkie pytania były w jednym pliku dril.txt
+Baza pytań znajduje się w dril.txt
 
 
-Aktualnie najbardziej istotne są pliki
-dril.txt i SysOp_kol2.txt
+W pliku wiki.txt jest wersja z wiki, znajdują się tam pytania których nie ma w dril.txt
+
+W plikach mogą być błedy i powtórzenia, jesli jakiś bład znajdziesz to prosze głoś to za pomocą Issue lub napraw i zrób PR
