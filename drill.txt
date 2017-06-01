@@ -282,7 +282,7 @@ Synchronizacja::Ktore problemy moga sie przytrafic w wielowatkowych progamach dz
 >>>d) zawieszenie
 e) restart programu
 
-Mutex::Mechanizm muteksow:
+Mechanizm muteksow:
 >>>a) umozliwia synchronizacje blokow kodu
 b) umozliwia wykonywanie synchronizowanych blokow kodu przez wiele watkow jednoczesnie
 c) wyklucza mozliwosc zakleszczenia programu
@@ -310,7 +310,7 @@ Teoria wielowatkowosci::Ktore z ponizszych zagadnien dotycza programow dzialajac
 d) Problem egzystencjalny
 e) Problem biurokracji
 
-Mutex::Inicjacjalizacji mutexa z atrybutami domyslnymi mozna dokonac za pomoca instrukcji:?
+Inicjacjalizacji mutexa z atrybutami domyslnymi mozna dokonac za pomoca instrukcji:?
 >>>a) pthread_mutex_init(&mutex, NULL);
 b) pthread_mutex_init(&mutex, PTHREAD_MUTEX_INITIALIZER);
 c) pthread_mutex_init(&mutex, PTHREAD_MUTEX_DEFAULT);
@@ -326,7 +326,7 @@ c) int pthread_mutex_lock(pthread_mutex_t *mutex)
 >>>e) int pthread_rwlock_trywrlock(pthread_rwlock_t *rwlock)
 >>>f) int pthread_rwlock_tryrdlock(pthread_rwlock_t *rwlock)
 
-Zmienne warunku (Condition variables)::Ktore funkcje sygnalizuja (niekoniecznie wszystkim) watkom oczekujacym na spelnienie warunku, ze zmienna warunku zostala zmieniona??
+Ktore funkcje sygnalizuja (niekoniecznie wszystkim) watkom oczekujacym na spelnienie warunku, ze zmienna warunku zostala zmieniona??
 a) int pthread_cond_init(pthread_cond_t *restrict cond, const pthread_condattr_t *restrict attr)
 >>>b) int pthread_cond_broadcast(pthread_cond_t *cond)
 c) int pthread_cond_wait(pthread_cond_t *restrict cond, pthread_mutex_t *restrict mutex)
@@ -338,7 +338,7 @@ a) Wewnatrz glownej funkcji wykonywanej przez watek, za pomoca funkcji sem_setva
 >>>c) W dowolnym miejscu programu (po inicjalizacji semafora), za pomoca funkcji sem_post
 d) Wewnatrz funkcji main, za pomoca funkcji sem_setvalue
 
-Mutex::Mozliwe typy (atrybuty) dla muteksa to:?
+Mozliwe typy (atrybuty) dla muteksa to:?
 >>>a) PTHREAD_MUTEX_NORMAL
 >>>b) PTHREAD_MUTEX_ERRORCHECK
 c) PTHREAD_MUTEX_DEADLKCHECK
@@ -470,7 +470,7 @@ c) powoduje anulowanie pozostalych watkow
 >>>d) nie spowoduje zablokowania sie watku, jesli mutex jest rekurencyjny
 e) bedzie mialo rezultat zalezny od ustawionej zmiennej warunku
 
-::Operacje na semaforach (POSIX)::W przypadku semaforow standardu POSIX:
+W przypadku semaforow standardu POSIX:
 >>>a) funkcja sem_wait() blokuje watek, az semafor bedzie mial wartosc dodatnia
 b) funkcja sem_post() stanowi zadanie przydzielenia zasobow (licznik semafora jest dekrementowany)
 c) funkcja sem_trypost() jest nieblokujaca wersja sem_post()
@@ -519,62 +519,62 @@ b) Szybciej odbywa sie przelaczanie miedzy watkami poziomu jadra
 d) W przypadku watkow poziomu uzytkownika zachlanny watek nie moze zabrac czasu wykonywania pozostalym watkom
 >>>e) Watki poziomu jadra sa obslugiwane jako pracujace w obrebie tej samej przestrzeni adresowej procesy.
 
-::Sockety::Przesylanie danych przez gniazdko w trybie connection-oriented (SOCK_STREAM) w domenie Internetu:
+Przesylanie danych przez gniazdko w trybie connection-oriented (SOCK_STREAM) w domenie Internetu:
 >>> a) Powoduje, ze u odbiorcy dostajemy ten sam ciag bajtow, ktory wyslalismy
 >>> b) Moze doprowadzic do blednej interpretacji liczb u odbiorcy (o ile nie zabezpieczymy sie przed tym)
 c) Wymaga dopisywania do przesylanych danych naglowka warstwy transportu (numery segmentow, flagi protokolu TCP itd.)
 >>> d) Wymaga istniejacego polaczenia pomiedzy gniazdami nadawcy i odbiorcy
 e) Jest mozliwe tylko wtedy, gdy gniazko odbiorcy znajduje sie na <b>innym</b> komputerze
 
-::Sockety::Poprawna sekwencja wywolan po stronie serwera, prowadzaca do akceptacji polacznia od klienta w strumieniowym trybie komunikacji (SOCK_STREAM):
+Poprawna sekwencja wywolan po stronie serwera, prowadzaca do akceptacji polacznia od klienta w strumieniowym trybie komunikacji (SOCK_STREAM):
 a) socket, listen, accept, bind
 b) listen, socket, bind, accept
 >>> c) socket, bind, listen, accept
 d) bind, socket, accept, listen
 
-::Sockety:Przy korzystaniu z gniazd domeny Unixa:
+Przy korzystaniu z gniazd domeny Unixa:
 >>> a) Mozemy utworzyc gniazdko w dowolnym miejscu struktury katalogow, do ktorego mamy prawa zapisu
 b) Nie ma zadnych ograniczen przy tworzeniu gniazdek
 >>> c) Do identyfikacji klienta nie powinno sie uzywac parametrow niezaleznych tylko w obrebie systemu (np. PID), poniewaz w przyszlosci komunikacja miedzy dwoma maszynami przez gniazdko na sieciowym systemie plikow moze stac sie mozliwa
 d) Nie jest mozliwe korzystanie z trybu connecionless (SOCK_DGRAM)
 
-::Sockety::Korzystanie z protokolu TCP przy gniazdach:
+Korzystanie z protokolu TCP przy gniazdach:
 a) jest niemozliwe
 b) jest mozliwe w dziedzinie UNIX w trybie connection-oriented (SOCK_STREAM)
 c) jest mozliwe w dziedzinie Internetu w trybie connectionless (SOCK_DGRAM)
 >>> d) jest mozliwe w dziedzinie Internetu w trybie connection-oriented (SOCK_STREAM)
 >>> e) TCP jest domyslnym protokolem dla odpowiedniej pary dziedzina - tryb komunikacji
 
-::Sockety::Zaakceptowanie polaczenia na sockecie (accept):
+Zaakceptowanie polaczenia na sockecie (accept):
 >>>a) Powoduje powstanie nowego otwartego deskryptora
 b) Uniemozliwia zaakceptowanie nowego polaczenia na sockecie nasluchujacym przed zakonczeniem tego, ktore wlasnie przyjelismy
 >>>c) Sprawia, ze komunikacja z klientem bedzie odbywac sie przez nowy deskryptor
 d) Umozliwia komunikacje z klientem zarowno przez deskryptor zwrocony przez accept, jak i przez ten, na ktorym polaczenie zostalo odebrane
 
-::Sockety::Aby zaakceptowac polaczenie i umozliwic komunikacje nalezy wywolac funkcje :
+Aby zaakceptowac polaczenie i umozliwic komunikacje nalezy wywolac funkcje :
 >>> a) accept
 b) connect
 c) setsockopt
 
-::Sockety::Typ gniazda decyduje o tym w jaki sposob beda przekazywane dane. Dopuszczalne wartosci to:
+Typ gniazda decyduje o tym w jaki sposob beda przekazywane dane. Dopuszczalne wartosci to:
 >>>a) SOCK_STREAM
 >>>b) SOCK_RAW
 c) PF_PACKET
 d) SOCK_DATGRAM
 
-::Sockety::Funkcja bind sluzy do:
+Funkcja bind sluzy do:
 a) tworzenia socketu
 b) nasluchiwania polaczen
 c) odbierania i wyswietlania danych
 >>>d) przyznania nazwy socketowi
 
-::Sockety::W funkcji socket:
+W funkcji socket:
 >>>a) pierwszy parametr okresla rodzine protokolow komunikacji
 >>>b) parametr protocol jest zazwyczaj rowny 0
 c) uzycie jako pierwszego parametru PF_INET6 sluzy do komunikacji w obrebie tylko jednej maszyny
 >>>d) parametr type okresla typ socketu
 
-::Sockety::Zaznacz prawidlowa odpowiedz:
+Zaznacz prawidlowa odpowiedz:
 a) Poniewaz sockety datagramowe wymagaja polaczenia, musimy na nie poczekac wywolujac funkcje listen()
 b) sockety umozliwiaja komunikacje miedzy procesami tylko poprzez siec
 c) do komunikacji miedzyprocesowej poprzes siec sluzy domena Unixowa
@@ -739,7 +739,7 @@ b)funkcja msgsnd zwraca identyfikator kolejki komunikatow
 c)funkcja msgrcv sluzy do ustawiania atrybutow kolejki
 >>> d)struktura msqid_ds definiuje biezacy stan kolejki
 
-4.Proces wywolujacy funkcje shmat:
+Proces wywolujacy funkcje shmat:
 >>> a) dolacza juz istniejacy segment pamieci do swojej przestrzeni adresowej
 b) odlacza segment pamieci od swojej przestrzeni adresowej 
 c) usuwa segment z jadra systemu
@@ -818,7 +818,7 @@ b) Blad w czasie kompilacji
 >>>d) Zarejestrowanie procedury czyszczacej
 >>>e) Wyrejestrowanie procedury czyszczacej
 
-1. Wspolnym terminem struktury IPC okreslamy:
+Wspolnym terminem struktury IPC okreslamy:
 a) kolejki komunikatow, kolejki FIFO, pamiec dzielona
 b) kolejki komunikatow, pamiec dzielona, mechanizm ryglowania rekordow
 d) kolejki FIFO, mechanizm ryglowania rekrdow, pamiec dzielona
@@ -851,59 +851,59 @@ a) Miejsce, gdzie znajduja sie zmienne automatyczne oraz informacje zwiazane z k
 c) Dane, ktore w sosob jawny inicjowane sa w programie
 d) Nie ma czegos takiego, pytanie jest zle sformulowane, nie ma w ogole o czym rozmawiac!
 
-1. Jaka funcja sluzy do tworzenia semaforow?
+Jaka funcja sluzy do tworzenia semaforow?
 >>> a) semget()
 b) semctl()
 c) semop()
 d) semctl() z odpowiednia opcja
 
-2. Kolejki komunikatow. Ktore zdanie jest prawdziwe?
+Kolejki komunikatow. Ktore zdanie jest prawdziwe?
 a) msgctl() moze sluzyc do wysylania komunikatow
 >>> b) msgctl() moze sluzyc do usuwania kolejki komunikatow
 >>> c) kazda kolejka posiada swoj identyfikator
 >>> d) msgget() sluzy do tworzenia kolejki komunikatow
 
-3. Pamiec dzielona:
->>> a) wymaga synchronizacji przy zapisywaniu i odczytywaniu z niej
+Pamiec dzielona:
+a) wymaga synchronizacji przy zapisywaniu i odczytywaniu z niej
 b) jest przylaczana do procesu za pomoca funkcji shmget()
 >>> c) umozliwia korzystanie z segmentu pamieci wielu procesom
 d) nie moga z niej korzystac procesy potomne
 
-4. Wyrozniamy 2 podstawowe operacje na semaforach:
+Wyrozniamy 2 podstawowe operacje na semaforach:
 >>> a) wejscie do sekcji krytycznej - wartosc semafora jest dekrementowana
 >>> b) opuszczenie sekcji krytycznej - wartosc semafora jest inkrementowana
 c) wejscie do sekcji krytycznej - wartosc semafora jest inkrementowana
 d) opuszczenie sekcji krytycznej - wartosc semafora jest dekrementowana
 
-5. Zasoby IPC. Ktore zdanie jest prawdziwe?
+Zasoby IPC. Ktore zdanie jest prawdziwe?
 >>> a) klucz do zasobu IPC jest generowany na podstawie nazwy istniejacego pliku i dowolnej liczby calkowitej
 b) kolejka komunikatow jest usuwana z pamieci po zakonczeniu procesu ktory operowal na niej
 >>> c) flaga IPC_CREAT oznacza ze jesli zasob o podanym kluczu nie istnieje, to zostanie utworzony.
 d) flaga IPC_PRIVATE oznacza ze z zasobu moze kozystac tylko dany proces oraz jego procesy potomne
 
-2. Ktore z ponizszych zdan jest nieprawdziwe: 
+Ktore z ponizszych zdan jest nieprawdziwe: 
 a) Lacza komunikacyjne sa przekazywane tylko w jednym kierunku 
 b) Lacza komunikacyjne mogą byc stosowane tylko przez proces majacy wspolnego przodka 
 >>> c) Nie istnieje niebezpieczenstwo wymieszanie przesylanych danych naszego zapisu z zapisem danych z innego 
 
-3. Ktore z ponizszych dokonczen zdania jest prawdziwe: "Koproces jest programem, ktory... "
+Ktore z ponizszych dokonczen zdania jest prawdziwe: "Koproces jest programem, ktory... "
 >>> a) czyta ze stadnardowego WE i pisze na standardowe WY 
 b) procesem wielokrotnie sie wykonujacym 
 c) jest rodzajem demona 
 
-5. Ktore z ponizszych zdan jest prawdziwe: 
+Ktore z ponizszych zdan jest prawdziwe: 
 a) polecenie mkfifo potrafi stworzyc pliki specjalne blokowe lub znakowe
 >>> b) polecenie mknod potrafi stworzyc pliki specjalne blokowelub znakowe 
 >>> c) jezeli proces chce zapisac mniejsza liczbe danych niz wynosi ilosc wolnego miejsca, to zostanie zapisane do lacza tyle bajtow ile proces chcial 
 d) jezeli proces chce zapisac mniejsza liczbe danych niz wynosi ilosc wolnego miejsca, to proces sie zakonczy bez zapisania danych 
 
-2. Ktora z ponizszych funkcji sluzy do odbierania komunikatow z kolejki:
+Ktora z ponizszych funkcji sluzy do odbierania komunikatow z kolejki:
 a) semop
 b) msgget
 >>> c) msgrcv
 d) printf
 
-4. W jakiej strukturze jadra jest przechowywany zestaw semaforow:
+W jakiej strukturze jadra jest przechowywany zestaw semaforow:
 a) sem
 b) sembuf
 >>> c) semid_ds
@@ -911,44 +911,44 @@ d) CSemSet
 e) semafor
 f) semfors_id
 
-5. Ktory sposob komunikacji miedzy-procesowej jest najszybszy?
+Ktory sposob komunikacji miedzy-procesowej jest najszybszy?
 a) semafory
 >>>b) pamiec wspoldzielona
 c) kolejki komunikatow
 d) potoki
 f) alfabet morse'a
 
-1. Metody zakonczenia watku to:
+Metody zakonczenia watku to:
 >>>a) pthread_exit z watku ktory chcemy zakonczyc
 b) pthread_exit z watku zewnetrznego
 >>>c) pthread_cancel z watku zewnetrznego
 >>>d) return z procedury startowej watku
 
-2. Co robi funkcja int pthread_cond_wait (pthread_cond_t *cond, pthread_mutex_t *mut); :
+Co robi funkcja int pthread_cond_wait (pthread_cond_t *cond, pthread_mutex_t *mut); :
 >>>a) zdejmuje blokade z mutexu mut
 b) czeka okreslony przedzial czasu
 >>>c) czeka na sygnal na zmiennej warunkowej cond
 >>>d)jest cancel-pointem ( watek w czasie blokady na tej funkcji moze zostac anulowany )
 
-3. Ktore z podanych funkcji sa cancel-pointami ( watki w czasie wykonywania tych funkcji moga zostac anulowane ) :
+Ktore z podanych funkcji sa cancel-pointami ( watki w czasie wykonywania tych funkcji moga zostac anulowane ) :
 >>>a) pthread_cond_wait
 b) pthread_mutex_lock
 >>>c) pthread_testcancel
 >>>d) sleep
 
-4. Do pobrania id watku biezacego sluzy:
+Do pobrania id watku biezacego sluzy:
 a) pthread_getid
 b) pthread_myself
 >>>c) pthread_self 
 d) zadna
 
-5. Dostepna dla zwyklego uzytkownika polityka schedulera jest:
+Dostepna dla zwyklego uzytkownika polityka schedulera jest:
 >>> a) SCHED_OTHER v
 b) SCHED_RR
 c) SCHED_FIFO
 d) zadna z powyzszych
 
-::IPC - system V:: Wywolanie: msgget(1234, O_CREAT|O_EXCL|0600)
+Wywolanie: msgget(1234, O_CREAT|O_EXCL|0600)
 a) gwarantuje stworzenie kolejki o kluczu 1234 do odczytu i zapisu wylacznie dla procesów tworzacego ja uzytkownika
 b) gwarantuje stworzenie kolejki o identyfiaktorze 1234 do odczytu i zapisu wylacznie dla procesów tworzacego ja uzytkownika
 >>> c) zwróci identyfikator kolejki o kluczu 1234, o ile kolejka nie istnieje
@@ -956,21 +956,21 @@ d) pobiera z kolejki o identyfikatorze 1234 komunikat
 e) zadne z powyzszych stwierdzen nie jest prawdziwe
 f) zwróci identyfikator kolejki o kluczu 1234, o ile kolejka istnieje 
  
-2. Z kolejki komunikatow mozemy odczytac:
+Z kolejki komunikatow mozemy odczytac:
 >>>a) pierwszy komunikat
 b) ostatni komunikat
 >>>c) pierwszy komunikat ktorego typ wynosi 5
 >>>d) pierwszy komunikat ktorego typ jest rozny od 5
 >>>e) pierwszy komunikat ktorego typ nie przekracza 5
 
-3. Co wyniknie z wywolania semget(12, 34, O_CREAT|0600); ?
+Co wyniknie z wywolania semget(12, 34, O_CREAT|0600); ?
 a) Funkcja zawsze zwroci blad
 >>>b) Funkcja zwroci identyfikator zestawu semaforow o kluczu 12 (o ile istnieje)
 c) Funkcja zwroci identyfikator zestawu semaforow o kluczu 34 (o ile istnieje)
 d) Funkcja utworzy zestaw 12 semaforow o kluczu 34 (jesli nie istnieje)
 >>>e) Funkcja utworzy zestaw 34 semaforow o kluczu 12 (jesli nie istnieje)
 
-4. Ktora z ponizszych operacji moze zablokowac proces:
+Ktora z ponizszych operacji moze zablokowac proces:
 struct sembuf buf;
 buf.sem_num = 0;
 buf.sem_flg = 0;
@@ -980,7 +980,7 @@ a) buf.sem_op = 1; semop(id, &buf, 1);
 d) buf.sem_op = -5; buf.sem_flg = IPC_NOWAIT; semop(id, &buf, 1);
 e) buf.sem_op = 5; buf.sem_flg = IPC_NOWAIT; semop(id, &buf, 1);
 
-5. Co wyniknie z wywolania: shmctl(1234, IPC_RMID, NULL);
+Co wyniknie z wywolania: shmctl(1234, IPC_RMID, NULL);
 a) Funkcja zawsze zwroci blad
 b) Funkcja natychmiast usunie obszar pamieci o kluczu 1234
 c) Funkcja natychmiast usunie obszar pamieci o identyfikatorze 1234
@@ -1012,9 +1012,9 @@ a) Laczy dwa dowolne watki o ID podanych jako parametr
 >>>d) Generuje blad gdy watek poda jako argument swoj wlasny ID
 >>>e) Zmusza watek do poczekania na zakonczenie innego watku
 
-2. Ktore zdanie dotyczace funkcji pthread_exit jest nieprawdziwe:
+Ktore zdanie dotyczace funkcji pthread_exit jest nieprawdziwe:
 a) Konczy dzialanie watku ktory ja wywolal.
->>>b) Jesli watek jest odlaczony wartosc zwracanabedzie pozniej dostepna dla funkcji pthread_join
+>>>b) Jesli watek jest odlaczony wartosc zwracana bedzie pozniej dostepna dla funkcji pthread_join
 c) Przyjmuje jako parametr wartosci jaka ma zostac zwrocona przez zakonczony watek
 >>>d) Jesli jako drugi parametr podamy ID watku, watek ten zostanie zakonczony
 >>>e) Ignoruje ona wszystkie procedury czyszczace i destruktory danych wlasnych
@@ -1066,19 +1066,19 @@ b) uzyc funkcji int msgget(key_t key,int msgflg) z msglfg ustawionym na O_MQDLT
 >>>c) uzyc funkcji int msgctl(int msqid,int cmd,struct msqid_ds* buf) z polem cmd ustawionym na IPC_RMID
 d) uzyc funckji int msgexec(int msqid,int cmd) z polem cmd ustawionym na IPC_MSQDLT
 
-::Tworzenie watkow::W ktorym pliku naglowkowym zadeklarowane sa funkcje obslugi watkow?
+W ktorym pliku naglowkowym zadeklarowane sa funkcje obslugi watkow?
 >>> a) pthread.h
 b) stdio.h
 c) stdlib.h
 d) string.h
 
-::Terminologia::Watek jest niekiedy nazywany:
+Watek jest niekiedy nazywany:
 >>> a) lekkim procesem
 b) ciezkim procesem
 c) grubym procesem
 d) twardym procesem
 
-::Funkcja exec::Wywolanie funkcji z rodziny exec w jednym z watkow danego procesu spowoduje:
+Wywolanie funkcji z rodziny exec w jednym z watkow danego procesu spowoduje:
 >>> a) zakonczenie sie wszystkich watkow tego procesu
 b) zakonczenie sie tylko tego jednego watku, wszystkie inne pozostana nienaruszone
 >>> c) zastapienie biezacego procesu przez inny
@@ -1177,13 +1177,13 @@ c) moze byc "tylko albo do zapisu", albo "tylko do odczytu"
 >>> d) jest dziedziczony przez potomka po wywolaniu funkcji fork()
 e) jest odlaczany i usuwany po wykonaniu exit()
 
-MUTEX::Jezeli watek A zablokuje rekurencyjny MUTEX M to:
+Jezeli watek A zablokuje rekurencyjny MUTEX M to:
 a) Ponowna proba blokady MUTEXu M przez watek A wstrzyma jego prace
 >>>b) Ponowna proba blokady MUTEXu M przez watek A NIE wstrzyma jego pracy
 >>>c) Proba blokady MUTEXu M przez watek B wstrzyma prace watku B
 d) Proba blokady MUTEXu M przez watek B wstrzyma prace watku A
 
-MUTEX::Funkcja pthread_mutex_trylock:
+Funkcja pthread_mutex_trylock:
 a) Probuje zablokowac watek, ktory ja wywoluje
 b) Nigdy nie blokuje MUTEXu podanego w argumencie
 >>>c) Nigdy nie wstrzymuje pracy watku ja wywolujacego
@@ -1230,7 +1230,7 @@ d) nazwa kolejki komunikatow
 b) inne okreslenie sygnalu czasu rzeczywistego
 c) proces, ktory blokuje zasoby
 
-::Pamiec wspolna::Do oblsugi pamieci wspolnej sluzy zestaw funkcji:
+Do oblsugi pamieci wspolnej sluzy zestaw funkcji:
 >>>a) shmget, shmat, shmdt, shmctl
 b) semget, semop, semctl
 c) msgget, msgsnd, msgrcv, msgctl
@@ -1271,7 +1271,7 @@ Zaznacz poprawne zdania dotyczace semaforow:
 c) semafor mozna usunac z pamieci niezaleznie od wartosci licznika odwolan
 d) funckja sem_wait moze zwracac blad EAGAIN
 
-2. W przypadku lacza od procesu potomnego do macierzystego:
+W przypadku lacza od procesu potomnego do macierzystego:
 a) proces macierzysty zamyka koniec lacza do odczytu
 >>> b) proces macierzysty zamyka koniec lacza do zapisu
 c) proces potomny zamyka koniec lacza do zapisu
@@ -1321,7 +1321,7 @@ c) moze z niej korzystac tylko jeden okreslony proces
 >>> c) czas ostatniego dolaczenia
 >>> d) biezaca liczba dolaczen
 
-::Sockety::Protokoly datagramowe charakteryzuja sie tym ze:
+Protokoly datagramowe charakteryzuja sie tym ze:
  a) Zapewniaja kontrole poprawnosci przesylanych danych
 >>> b) Dane nie musza docierac do odbiorcy w tej samej kolejnosci w jakiej byly wyslane
  c) Protokól TCP jest protokolem datagramowym
@@ -1717,6 +1717,7 @@ b) tak, poniewaz w pipe nie powinno byc wogole pierwszego argumentu
 c) tak, poniewaz w pipe pierwszym argumentem powinno byc tab[0]   
 d) tak, poniewaz tablica powinna byc typu pid_t a nie int   
 e) nie
+
 Kazdy komunikat w kolejce komunikatów POSIX zawiera:
 >>>a) Rozmiar obszaru danych
 >>>b) Dane komunikatu
@@ -1724,7 +1725,7 @@ Kazdy komunikat w kolejce komunikatów POSIX zawiera:
 d) Identyfikato watka, który wyslal komunikat
 e) Identyfikator procesu, który wyslal komunikat
 
-2. Do zwolnienia bloku pamieci wspólnej POSIX sluzy funkcja:
+Do zwolnienia bloku pamieci wspólnej POSIX sluzy funkcja:
 a) Pamiec nie moze byc zwalniana recznie) Zwalnia ja system operacyjny po zakonczeniu procesów, które sie do niej odwoluja
 b) close
 c) shm_delete
@@ -1757,26 +1758,26 @@ a) dla kazdego watku nalezy wywolac procedure signal , gdyz watek nie dziedziczy
 >>>c) Wszystkie watki w jednym procesie wspóldziela procedury obslugi sygnalów, domyslnie ustawione przez programiste
 d) W systemie Linux nie ma mozliwosci wysylania komunikatów pomiedzy watkami, adresowanych do konkretnego watku.
 
-8. Utworzylismy nowy watek funkcja pthread_create) Gdy bedziemy chcieli zakonczyc ten watek bez konczenia procesu, mozemy w funkcji tego watku wywolac instrukcje lub funkcje:
+Utworzylismy nowy watek funkcja pthread_create Gdy bedziemy chcieli zakonczyc ten watek bez konczenia procesu, mozemy w funkcji tego watku wywolac instrukcje lub funkcje:
 a) escape
 b) exit
 >>>c) pthread_exit
 >>>d) return w glównej funkcji watku
 
-10. Mutex typu PTHREAD_MUTEX_RECURSIVE_NP ma nastepujace cechy?
+Mutex typu PTHREAD_MUTEX_RECURSIVE_NP ma nastepujace cechy?
 >>>a) Watek, który zablokowal mutex, moze zwiekszyc licznik blokad mutexu
 b) Mutex zawsze odblokowujemy tylko raz
 c) Zadna z pozostalych odpowiedzi nie jest prawdziwa
 d) Kazdy watek moze zwiekszyc licznik blokad mutexu
 
-11. Korzystanie z protokolu TCP przy gniazdach:
+Korzystanie z protokolu TCP przy gniazdach:
 a) jest niemozliwe
 b) jest mozliwe w dziedzinie Unixa w trybie connection-oriented (SOCK_STREAM)
 c) jest mozliwe w dziedzinie Internetu w trybie connectionless (SOCK_DGRAM)
 >>>d) jest mozliwe w dziedzinie Internetu w trybie connection-oriented (SOCK_STREAM)
 >>>e) TCP jest domyslnym protokolem dla odpowiedniej pary dziedzina - tryb komunikacji
 
-12. Kazdy program dzialajacy jako serwer musi w swoim kodzie miec wywolanie funkcji?
+Kazdy program dzialajacy jako serwer musi w swoim kodzie miec wywolanie funkcji?
 >>>a) bind(...)
 b) connect(...)
 c) listen(...)
@@ -1816,12 +1817,6 @@ a) Jezeli wywolujac funkcje semop bedziemy alokowac zasoby (wartosc sem_op ujemn
 >>> c) Funkcja semop realizuje w sposób atomowy operacje na zbiorze semaforów tzn. albo zostana wykonane wszystkie zadane operacje, albo zadna
 >>> d) Operacja wykonywana przez funkcje semop moze zmienic stan co najwyzej jednego semafora ze zbioru
 e) Zadne z pozostalych zdan nie jest prawdziwe 
-
-::Watki::Funkcja pthread_cleanup_push:
->>> a) rejestruje funkcje, która jest wywolana jak watek wywola funkcje pthread_exit
-b) usuwa funkcje ze zbioru funkcji czyszczacych watku
-c) blokuje proces
-d) rejestruje funkcje na stosie
 
 Przy tworzeniu/otwarcia obiektu pamieci wspólnej POSIX (shm_open) mozemy podac nastepujace flagi:
 >>> a) O_RDONLY - pamiec tylko do odczytu
