@@ -237,7 +237,7 @@ a) usuwa funkcje ze zbioru funkcji czyszczących wątku
 d) blokuje proces
 
 IPC - system V) Jaką wartość można ustawić jako trzeci argument funkcji semget?
->>>a) IPC_PRIVATE
+a) IPC_PRIVATE
 >>>b) IPC_CREATE  
 c) IPC_NOWAIT  
 d) SEM_UNDO
