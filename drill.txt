@@ -692,9 +692,8 @@ b) pthread_exit z watku zewnetrznego
 a) argument flag pozwala okreslic maksymalna liczbe komunikatów, które moga znalezc sie w kolejce
 b) kolejka zostanie zawsze stworzona, gdy zostanie podany dodatni calkowity klucz oraz jedna z flag bedzie IPC_CREAT
 >>> c) podanie klucza równego wartosci symbolicznej IPC_PRIVATE gwarantuje stworzenie nowej kolejki
->>> d) argument flag pozwala okrsesic prawa dostepu do kolejki
-e) argument flag pozwala okreslic prawa dostepu do kolejki
-f) do kolejki, od tej pory, funkcje systemowe uzyskuja dostep zarówno przez klucz, jak i przez zwrócony przez msgget identyfikator
+>>> d) argument flag pozwala okreslic prawa dostepu do kolejki
+e) do kolejki, od tej pory, funkcje systemowe uzyskuja dostep zarówno przez klucz, jak i przez zwrócony przez msgget identyfikator
 
 Stan "odlaczenia" watku::Gdy watek znajduje sie w stanie "odlaczonym" (detached):
 >>>a) pamiec po nim zostanie zwolniona od razu po zakonczeniu jego dzialania
@@ -942,14 +941,6 @@ b) SCHED_RR
 c) SCHED_FIFO
 d) zadna z powyzszych
 
-Wywolanie: msgget(1234, O_CREAT|O_EXCL|0600)
-a) gwarantuje stworzenie kolejki o kluczu 1234 do odczytu i zapisu wylacznie dla procesów tworzacego ja uzytkownika
-b) gwarantuje stworzenie kolejki o identyfiaktorze 1234 do odczytu i zapisu wylacznie dla procesów tworzacego ja uzytkownika
->>> c) zwróci identyfikator kolejki o kluczu 1234, o ile kolejka nie istnieje
-d) pobiera z kolejki o identyfikatorze 1234 komunikat
-e) zadne z powyzszych stwierdzen nie jest prawdziwe
-f) zwróci identyfikator kolejki o kluczu 1234, o ile kolejka istnieje 
- 
 Z kolejki komunikatow mozemy odczytac:
 >>>a) pierwszy komunikat
 b) ostatni komunikat
@@ -1415,12 +1406,6 @@ b) zalezy to od implementacji systemu
 >>> c) proces który ja utworzyl i jego potomkowie
 >>> d) atrybuty dostepu mozna ustalic podczas tworzenia struktury
 
-Ktora z funkcji mozemy ustawic flage O_NONBLOCK dla pliku?
->>> a) fcntl()
-b) fopen()
-c) fstat()
-d) open()
-
 ::IPC - system V:: Zaznacz prawdziwe zdania:
 a) Zadna z pozostalych odpowiedzi nie jest prawdziwa
 b) Funkcja shmget tworzy segment pamieci wspólnej i dolacza go do przestrzeni adresowej procesu wywolujacego
@@ -1449,13 +1434,6 @@ a) Odpowiedz 3 jest poprawna
 b) Odpowiedz 4 jest poprawna   
 >>>c) Odpowiedz 2 jest poprawna   
 >>>d) Odpowiedz 1 jest poprawna   
-
-Przesylanie danych przez gniazdo w trybie connection-oriented (SOCK_STREAM) w domenie Internet:
->>> a) Powoduje, ze u odbiorcy dostajemy ten sam ciag bajtów, który wyslalismy   
-b) Moze doprowadzic do blednej interpretacji liczb u odbiorcy (o ile nie zabezpieczymy sie przed tym)   
-c) Wymaga dopisywania do przesylanych danych naglówka warstwy transportu (numery segmentów, flagi protokolu TCP itd))   
->>> d) Wymaga istniejacego polaczenia pomiedzy gniazdami nadawcy i odbiorcy   
-e) Jest mozliwe tylko wtedy, gdy gniazdo odbiorcy znajduje sie na innym komputerze   
 
 W jaki sposób mozna umozliwic dostep do semafora POSIXowego dla róznych procesów
 a) Semafory moga byc dostepne tylko w jednym procesie, gdyz sluza do synchronizacji watków 
@@ -1817,13 +1795,6 @@ Przy tworzeniu/otwarcia obiektu pamieci wspólnej POSIX (shm_open) mozemy podac 
 b) O_WRONLY - pamiec tylko do zapisu
 >>> c) O_RDWR - pamiec do odczytu i zapisu
 d) Zadne z przedstawionych. Pamiec dzielona jest zawsze do odczytu i zapisu 
-
-Które zdanie dotyczace funkcji pthread_exit jest nieprawdziwe:
-a) Konczy dzialanie watku, który ja wywolal.
->>>b) Jesli watek jest odlaczony wartosc zwracana bedzie pózniej dostepna dla funkcji pthread_join
->>>c) Ignoruje ona wszystkie procedury czyszczace i destruktory danych wlasnych
-d) Przyjmuje jako parametr wartosc jaka ma zostac zwrócona przez zakonczony watek
->>>e) Jesli jako drugi parametr podamy ID watku, watek ten zostanie zakonczony  
 
 Które funkcje powoduja calkowite usuniecie kolejki Posix z systemu?
 a) int mq_setattr(mqd_t mqdes, const struct mq_attr *attr, struct mq_attr *oattr) z odpowiednimi atrybutami 
